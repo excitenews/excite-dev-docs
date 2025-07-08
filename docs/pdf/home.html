@@ -1,1 +1,42 @@
-<a href="https://excitenews.github.io/excite-dev-docs/docs/pdf/excite-feedback-engine.pdf">The Excite Feedback Engine Docs (.pdf)</a>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>home</title>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <script>
+    fetch('navbar.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(data => {
+        const navbar = document.getElementById('navbar');
+        navbar.innerHTML = data;
+        // Add styles dynamically
+        navbar.style.backgroundColor = '#1B4D6E';
+        navbar.style.color = '#FFFFFF';
+        const links = navbar.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.color = '#89CFF0';
+          link.addEventListener('mouseover', () => link.style.color = '#B3E5FC');
+          link.addEventListener('mouseout', () => link.style.color = '#89CFF0');
+        });
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  
+  <p> </p>
+  <p> </p>
+  <p> </p>
+
+  <p>Hello, developers welcome to the excite developer docs. You will find info in the docs/pdf directory. see above.</p>
+  <ul>
+    <li><a href="https://excitenews.github.io/excite-dev-docs/docs/pdf/excite-feedback-engine.pdf">The Excite Feedback Engine Docs (.pdf)</a></li>
+  </ul>
+</body>
